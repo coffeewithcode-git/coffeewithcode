@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.premium-button {
+    position: relative;
+    display: inline-block;
+    padding: 20px 50px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+    background-size: 400% 400%;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow:
+        0 0 20px rgba(255, 0, 110, 0.4),
+        0 0 40px rgba(131, 56, 236, 0.3),
+        0 0 60px rgba(58, 134, 255, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.5);
+    animation:
+        gradientFlow 4s ease infinite,
+        pulse 2s ease-in-out infinite alternate,
+        float 6s ease-in-out infinite;
+}
+
+.premium-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg,
+            transparent,
+            #ff006e,
+            transparent,
+            #8338ec,
+            transparent,
+            #3a86ff,
+            transparent,
+            #06ffa5,
+            transparent);
+    animation: rotate 3s linear infinite;
+    z-index: -1;
+}
+
+.premium-button::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+    background-size: 400% 400%;
+    border-radius: 57px;
+    z-index: -1;
+    animation: gradientFlow 4s ease infinite reverse;
+}
+
+.premium-button:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow:
+        0 0 40px rgba(255, 0, 110, 0.8),
+        0 0 80px rgba(131, 56, 236, 0.6),
+        0 0 120px rgba(58, 134, 255, 0.4),
+        0 20px 60px rgba(0, 0, 0, 0.7);
+    animation-play-state: paused;
+}
+
+.premium-button:hover::before {
+    animation-duration: 0.5s;
+}
+
+.premium-button:active {
+    transform: translateY(-5px) scale(1.05);
+    transition: transform 0.1s;
+}
+
+.button-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button-text {
+    position: relative;
+    overflow: hidden;
+}
+
+.button-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transition: left 0.8s;
+}
+
+.premium-button:hover .button-text::before {
+    left: 100%;
+}
+
+.morphing-shape {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: morph 2s ease-in-out infinite alternate;
+}
+
+.shape-1 {
+    top: 10px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    top: 50px;
+    right: 15px;
+    animation-delay: 0.5s;
+}
+
+.shape-3 {
+    bottom: 15px;
+    left: 30px;
+    animation-delay: 1s;
+}
+
+.shape-4 {
+    bottom: 40px;
+    right: 25px;
+    animation-delay: 1.5s;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow:
+            0 0 20px rgba(255, 0, 110, 0.4),
+            0 0 40px rgba(131, 56, 236, 0.3),
+            0 0 60px rgba(58, 134, 255, 0.2);
+    }
+
+    100% {
+        box-shadow:
+            0 0 40px rgba(255, 0, 110, 0.6),
+            0 0 80px rgba(131, 56, 236, 0.5),
+            0 0 120px rgba(58, 134, 255, 0.4);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 50%;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        border-radius: 20%;
+        transform: scale(1.5) rotate(180deg);
+    }
+
+    100% {
+        border-radius: 50%;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+.particle-system {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat 4s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(120px) translateX(0px) scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(60px) translateX(20px) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-120px) translateX(-10px) scale(0);
+        opacity: 0;
+    }
+}
+
+.energy-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border: 2px solid transparent;
+    border-top: 2px solid rgba(255, 0, 110, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: energyPulse 3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes energyPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .premium-button {
+        padding: 18px 40px;
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+}
