@@ -1,0 +1,50 @@
+body{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 30px;
+    background: #fafafa;
+}
+
+p{
+    font-size: 18px;
+    color: #222;
+    line-height: 1.6;
+}
+
+.tooltip{
+    position: relative;
+    color: #0645ad;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.tooltip::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 150px;
+    height: 200px;
+
+    /* change the url or add image by your computer local file */
+    background: url('https://upload.wikimedia.org/wikipedia/commons/3/3e/The_cricket_legend_Sachin_Tendulkar_at_the_Oval_Maidan_in_Mumbai_During_the_Duke_and_Duchess_of_Cambridge_Visit%2826271019082%29.jpg') no-repeat center center / cover;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease,transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) ;
+    z-index: 999;
+}
+
+.tooltip.show-top::after{
+    transform: translateX(-50%) translateY(-110%);
+}
+
+.tooltip.show-below::after{
+    transform: translateX(-50%) translateY(10%);
+}
+
+.tooltip:hover::after{
+    opacity: 1;
+}
