@@ -1,0 +1,36 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+/* Loader Styling */
+.loader {
+  width: 80px;
+  height: 80px;
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-top: 8px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
